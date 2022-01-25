@@ -1,0 +1,328 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #000000;
+  overflow: hidden;
+}
+canvas {
+  display: block;
+}
+
+@font-face {
+  font-family: Mostwasted;
+  src: url("/font/Mostwasted.ttf");
+}
+
+@font-face {
+  font-family: Myriad;
+  src: url("/font/MyriadPro-SemiboldCond-12.otf");
+}
+
+@font-face {
+  font-family: Myriad-it;
+  src: url("/font/MyriadPro-SemiboldSemiCnIt-8.otf");
+}
+
+@font-face {
+  font-family: Myriad-l;
+  src: url("/font/MyriadPro-LightCond-22.otf");
+}
+
+:root {
+  --canvasWidth: 200px;
+  --btnResize: 1;
+}
+
+#preloader {
+  /*這是整個會蓋住畫面的底色色塊*/
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  text-align: center;
+  left: 0%;
+  top: 0%;
+  background-color: #000000;
+}
+#status {
+  /* 這是中間loading */
+  font-family: Mostwasted;
+  font-size: calc(var(--btnResize) * 30px);
+  letter-spacing: calc(var(--btnResize) * 2px);
+  position: fixed;
+  color: #ffffff;
+  width: calc(var(--btnResize) * 300px);
+  height: calc(var(--btnResize) * 400px);
+  margin-left: calc(var(--btnResize) * -110px);
+  margin-top: calc(var(--btnResize) * 400);
+  justify-content: center;
+  text-align: center;
+  left: 50%;
+  top: 50%;
+}
+
+.Name {
+  font-family: Mostwasted;
+}
+
+#all {
+  width: 100%;
+  height: 100%;
+  /* border: white 1px solid; */
+  border-collapse: collapse;
+  color: white;
+}
+
+td {
+  /* border: white 1px solid; */
+  border-collapse: collapse;
+}
+
+/* header */
+#header {
+  height: 13%;
+}
+
+.blndimg {
+  src: url(/image/blnd_logo.png);
+  width: calc(var(--btnResize) * 40px);
+  cursor: pointer;
+  vertical-align: middle;
+  display: inline;
+}
+
+.icon {
+  width: calc(var(--btnResize) * 30px);
+  margin: calc(var(--btnResize) * -5px);
+  vertical-align: middle;
+  display: inline;
+}
+
+.credit {
+  text-align: right;
+  font-family: Myriad-l;
+  font-size: calc(var(--btnResize) * 20px);
+  color: white;
+  letter-spacing: calc(var(--btnResize) * 0.5mm);
+  cursor: pointer;
+  margin-right: calc(var(--btnResize) * 10px);
+}
+
+.credit:hover {
+  color: lightgray;
+}
+
+#credit_center {
+  text-align: right;
+  visibility: hidden;
+}
+
+#projectName {
+  text-align: left;
+  font-family: Myriad-l;
+  font-size: calc(var(--btnResize) * 20px);
+  letter-spacing: calc(var(--btnResize) * 0.5mm);
+  padding: calc(var(--btnResize) * 10px);
+}
+
+#projectName_center {
+  text-align: left;
+  font-family: Myriad-l;
+  font-size: calc(var(--btnResize) * 20px);
+  letter-spacing: calc(var(--btnResize) * 0.5mm);
+  padding: calc(var(--btnResize) * 10px);
+  visibility: hidden;
+}
+
+#smallTitle {
+  font-family: Mostwasted;
+  font-size: calc(var(--btnResize) * 50px);
+  color: #4a67f5;
+  cursor: pointer;
+  margin: 0%;
+  padding-top: 5%;
+}
+
+/* center_up */
+#main_gameDiv {
+  justify-content: center;
+  text-align: center;
+}
+
+#content {
+  height: var(--canvasWidth);
+}
+
+#click_area {
+  text-align: center;
+  height: 27%;
+  /* padding: 0%; */
+}
+
+#bottom {
+  height: 10%;
+}
+
+#myCanvas {
+  justify-content: top;
+  text-align: top;
+  width: var(--canvasWidth);
+  height: var(--canvasWidth);
+  border-radius: calc(var(--btnResize) * 20px);
+  /* background-color: #f4f3f2; */
+}
+
+#subtitle {
+  font-size: calc(var(--btnResize) * 17px);
+  color: #ffffff;
+  justify-content: center;
+  text-align: center;
+}
+
+#countNumber {
+  margin: 0px auto;
+  width: calc(var(--btnResize) * 200px);
+  height: calc(var(--btnResize) * 100px);
+  background-image: url(/image/countLetter.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#number {
+  margin: 0px;
+  font-family: Myriad-it;
+  font-size: calc(var(--btnResize) * 48px);
+  line-height: calc(var(--btnResize) * 80px);
+  color: rgb(0, 0, 0);
+  text-align: right;
+  padding-right: calc(var(--btnResize) * 32px);
+}
+
+#startbtn {
+  width: calc(var(--btnResize) * 150px);
+  cursor: pointer;
+}
+
+#nextbtn {
+  width: calc(var(--btnResize) * 130px);
+  cursor: pointer;
+}
+
+#okbtn {
+  width: calc(var(--btnResize) * 150px);
+  cursor: pointer;
+}
+
+#savebtn {
+  margin: calc(var(--btnResize) * 10px);
+}
+
+#restartbtn {
+  margin: calc(var(--btnResize) * 10px);
+}
+
+.button {
+  border: none;
+  /* color: black; */
+  padding: calc(var(--btnResize) * 10px) calc(var(--btnResize) * 28px);
+  font-family: Myriad;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: calc(var(--btnResize) * 25px);
+  margin: 3px 2px;
+  letter-spacing: calc(var(--btnResize) * 2px);
+  /* transition-duration: 0.2s; */
+  cursor: pointer;
+  border-radius: calc(var(--btnResize) * 30px);
+}
+
+.button1 {
+  background-color: rgba(255, 255, 255, 0);
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+.button1:hover {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+}
+
+#raiseNotice {
+  width: calc(var(--btnResize) * 280px);
+}
+
+#typeName {
+  width: calc(var(--btnResize) * 45%);
+  height: calc(var(--btnResize) * 30px);
+}
+
+#your_name {
+  width: calc(var(--btnResize) * 60%);
+}
+
+#name_Div {
+  justify-content: center;
+  text-align: center;
+}
+
+#finishbtn {
+  /* color: black; */
+  padding: calc(var(--btnResize) * 7px) calc(var(--btnResize) * 26px);
+  font-family: Myriad;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: calc(var(--btnResize) * 20px);
+  margin-top: calc(var(--btnResize) * 30px);
+  letter-spacing: calc(var(--btnResize) * 2px);
+  /* transition-duration: 0.2s; */
+  cursor: pointer;
+  border-radius: calc(var(--btnResize) * 30px);
+}
+
+@media only screen and (max-width: 450px) {
+  /* body {
+    background-color: lightblue;
+  } */
+  #leftside {
+    width: 0%;
+  }
+  #rightside {
+    width: 0%;
+  }
+  #header {
+    height: 20%;
+  }
+  #bottom {
+    height: 8%;
+  }
+}
+
+@media only screen and (max-width: 730px) {
+  #credit_center {
+    visibility: visible;
+    /* font-size: 17px; */
+  }
+  .credit {
+    font-size: 17px;
+  }
+  .blndimg {
+    width: 35px;
+  }
+  .icon {
+    width: 25px;
+  }
+  #projectName_center {
+    visibility: visible;
+    font-size: 17px;
+  }
+  #creditDiv {
+    display: none;
+  }
+  #projectName {
+    display: none;
+  }
+}
