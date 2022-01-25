@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="en"><head>
+    <script src="/js/p5.js"></script>
+    <script src="/js/p5.sound.min.js"></script>
+    <script src="/js/p5.dom.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    
+    <script src="/js/ml5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Blue Monday</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="HandheldFriendly" content="True">
+
+    <script type="text/javascript">
+        $(window).on('load', function() { // 確認整個頁面讀取完畢再將這三個div隱藏起來
+            $("#status").delay(2000).fadeOut(200); //delay --> 延遲幾秒才fadeOut
+            $("#preloader").delay(2000).fadeOut(200);
+        })
+    </script>
+
+  </head>
+  <body>
+    <script src="resize.js"></script>
+    <script src="sketch.js"></script>
+    <script src="color.js"></script>
+    <script src="/drawScene/level.js"></script>
+    <script src="/drawScene/play.js"></script>
+    <script src="/drawScene/choose.js"></script>
+    <script src="/drawScene/intro.js"></script>
+    <script src="/drawScene/class.js"></script>
+    <script src="change.js"></script>
+    <script src="pose.js"></script>
+    <script src="checkSpot.js"></script>
+    <script src="mission.js"></script>
+    <script src="event.js"></script>
+    
+    <script src="brushJS/brush_1.js"></script>
+    <script src="brushJS/brush_2.js"></script>
+    <script src="brushJS/brush_3.js"></script>
+    <script src="brushJS/brush_4.js"></script>
+    <script src="brushJS/brush_5.js"></script>
+    
+    <script src="brushJS/drip_1.js"></script>
+    <script src="brushJS/drip_2.js"></script>
+    <script src="brushJS/drip_4.js"></script>
+    <script src="brushJS/drip_5.js"></script>
+    
+        <table id="all">
+            <tr id="header">
+                <td id="leftside"></td>
+                <td id="main_gameDiv">
+                    <h1 id="smallTitle" onclick="backMain()" style="visibility: hidden;">Blue Monday</h1>
+                </td>
+                <td id="rightside"></td>
+            </tr>
+            <tr id="content">
+                <td id="leftbar" rowspan="2"></td>
+                <td id="myCanvas"></td>
+                <td rowspan="2"></td>
+            </tr>
+            <tr>
+                <td id="click_area">
+                  <p id="subtitle"></p>
+                  <div id="countNumber" style="display:none;">
+                      <p id="number">30</p>
+                  </div>
+                  <button id="savebtn" class="button button1" onclick="SaveTheDraw()" style="display: none;">Save</button>
+                  <button id="restartbtn" class="button button1" onclick="backMain()" style="display: none">Restart</button>
+                  
+                  <img id="startbtn" class="responsive" src="image/start.png" style="display:inline-flex;"/>
+                  <img id="okbtn" class="responsive" src="image/ok.png" style="display:none;"/>
+                  <img id="nextbtn" class="responsive" src="image/nextbtn.png" style="display:none;"/>
+                  <img id="raiseNotice" src="image/raise.png" style="display:none;"/>
+                  
+                  <div id="name_Div" style="display:none;">
+                    <div><img id="your_name" src="image/your_name.png"/></div>
+                    <input id="typeName" placeholder="english name"/>
+                  </div>
+                  <div>
+                      <button id="finishbtn" class="button1" style="display: none;">Done</button>
+                  </div>
+                </td>
+            </tr>
+            <tr id="bottom">
+                <td style=" text-align: left;">
+                    <span id="projectName" style="visibility: visible;">Blue Monday</span>
+                </td>
+                <td>
+                    <table style="width:100%; height:100%;">
+                        <tr>
+                            <td id="projectName_center">Blue Monday</td>
+                            <td id="credit_center">
+                                <img class="blndimg" id="changelogo_cen" src="image/blnd_logo.png" onclick="blndWeb()">
+                                <img class="icon" src="image/blnd-credit.png">
+                                <span class="credit" id="showcredit_cen">credit</span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td id="creditDiv" style="text-align: right; visibility: visible;">
+                    <img class="blndimg" id="changelogo" src="image/blnd_logo.png" onclick="blndWeb()">
+                    <img class="icon" src="image/blnd-credit.png">
+                    <span class="credit" id="showcredit">credit</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="preloader">
+        <div id="status">loading...</div>
+</body>
+</html>
